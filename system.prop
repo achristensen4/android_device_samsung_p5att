@@ -62,6 +62,11 @@ persist.fuse_sdcard=true
 #
 # System prop for default rotation
 #
+# NOTE: THIS SUCKS! Apparently the screen is mounted in portrait mode!
+#
+# Thanks to this, the whole thing is a jankfest because MDP overlay UI can't be used
+# when rotation is involved. *headdesk*
+#
 ro.sf.hwrotation=90
 
 # for 800x1280 panel tablet
