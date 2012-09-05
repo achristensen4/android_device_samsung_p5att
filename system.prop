@@ -92,12 +92,3 @@ persist.radio.snapshot_disabled=1
 # use mtp for default storage mode
 persist.sys.usb.config=mtp
 
-# qcom display options
-com.qc.hardware=true
-debug.sf.hw=1
-debug.egl.hw=1
-debug.composition.type=dyn
-debug.mdpcomp.maxlayer=3
-debug.mdpcomp.logs=0
-ro.hwui.text_cache_width=2048
-debug.enabletr=true
