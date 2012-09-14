@@ -196,4 +196,6 @@
         <item>25</item>
     </integer-array>
 
+    <!-- Electron beam looks pretty silly on this device because of the rotated display -->
+    <bool name="config_animateScreenLights">true</bool>
 </resources>
