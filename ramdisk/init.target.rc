@@ -56,7 +56,7 @@ on emmc-fs
     mkdir /system/etc/firmware/misc 0771 system system
     mkdir /system/etc/firmware/misc_mdm 0771 system system
     exec /system/bin/sh /system/etc/init.qcom.modem_links.sh
-    mount ext4 /dev/block/mmcblk0p24 /system remount ro barrier=0
+    mount ext4 /dev/block/mmcblk0p24 /system remount rw barrier=1
     mkdir /tombstones 0771 system system
     mount ext4 /dev/block/mmcblk0p27 /tombstones nosuid nodev barrier=1
 
@@ -64,7 +64,6 @@ on emmc-fs
     write /sys/devices/i2c-0/0-0024/cyttsp_update_fw 1
 service kickstart /system/bin/qcks l
     oneshot
-    disabled
 
 # Start kickstart if csfb or svlte2a target
 on property:ro.baseband=csfb
@@ -82,20 +81,17 @@ on property:ro.baseband=svlte2a
 
 service dcvsd0 /system/bin/dcvsd -c 0 -f /data/misc/dcvsd/dcvsd0.conf
     user root
-    disabled
 
 service dcvsd1 /system/bin/dcvsd -c 1 -f /data/misc/dcvsd/dcvsd1.conf
     user root
-    disabled
 
 service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
     user root
-    disabled
 
-#service thermald /system/bin/thermald
-#    class main
-#    user root
-#    group root
+service thermald /system/bin/thermald
+class main
+user root
+group root
 
 service qrngd /system/bin/qrngd -f
     user root
